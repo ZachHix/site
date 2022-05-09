@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="output.css" rel="stylesheet">
+  <link href="main.js" rel="script">
+  
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
+</head>
+<body class=" bg-cover bg-[url('temp.jpg')] ">
+
+<div class="flex-col pt-4">
+<div class="flex flex-col bg-transparent m-auto p-auto" id="row1">
+
+	<div class="shadow-lg rounded-lg overflow-hidden">
+	  <div class="py-3 px-5 bg-blur ">Global Warming Potential Over the Next 100 Years.</div>
+	  <canvas class="p-10" id="chartBar"></canvas>
+	</div>
+	
+	<!-- Required chart.js -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	
+	<!-- Chart bar -->
+	<script>
+	  const labelsBarChart = [
+		"CO2",
+		"CH₄",
+		"N₂O",
+		"HFC-152a",
+		"SF₆",
+		"PFC-14 "
+	  ];
+	  const dataBarChart = {
+		labels: labelsBarChart,
+		datasets: [
+		  {
+			label: "GWP (Global Warming Potential)",
+			backgroundColor: "hsl(252, 82.9%, 67.8%)",
+			borderColor: "hsl(252, 82.9%, 67.8%)",
+			data: [1, 28, 265, 138, 23500, 6630],
+		  },
+		],
+	  };
+	
+	  const configBarChart = {
+		type: "bar",
+		data: dataBarChart,
+		options: {},
+	  };
+	
+	  var chartBar = new Chart(
+		document.getElementById("chartBar"),
+		configBarChart
+	  );
+	</script>
+</div>
+<div class="min-h-screen flex flex-col items-center" id="toast">
+<footer class="fixed backdrop-blur bottom-2 p-4 mb-4 rounded-lg mx-auto w-auto shadow-2xl z-10 flex items-end"  style="height: 80px" 
+	  @mousemove="x = $event.clientX; y = $event.clientY" 
+	  @mouseleave="x=10000;y=10000" x-data="{
+	x: 10000, y: 10000,
+	scalefactor(el){
+	  let rect = el.getBoundingClientRect();
+	  let dx = Math.abs(this.x - (rect.left + rect.right)/2.0);
+	  let dy = Math.abs(this.y - (rect.top + rect.bottom)/2.0);
+	  let dist = Math.sqrt(dx ** 2 + dy ** 2);
+	  return Math.min(Math.max(1.0, (2.0 - (dist-20) / 120)), 2.0);
+	},
+	size(el){
+	  return String(Math.round(48 * this.scalefactor(el))) + 'px';
+	}}">
+ <div id="hoverarea" class="flex items-end gap-x-4" style="height: 96px">
+   <button class="bg-red-500 text-white text-2xl font-bold rounded" onclick="window.location='home.html';" :style="{ width: size($el), height: size($el) }" > &#x1F3E0;
+	   </button>
+	   <button class="bg-red-500 text-white text-2xl font-bold rounded" onclick="window.location='index.html';" :style="{ width: size($el), height: size($el) }" > &#x1F4A1;
+		  </button>
+ <button class="bg-red-500 text-white text-2xl font-bold rounded" onclick="window.location='charts.html';" :style="{ width: size($el), height: size($el) }" > &#x1F4CA;
+   </button>
+ 
+   
+ </div>
+</footer>
+</div>
+</div>
+<style>
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+</style>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="output.css" rel="stylesheet">
+  <link href="input.css" rel="stylesheet">
+
+  <link href="main.js" rel="script">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  
+  
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
+</head>
+<body class=" bg-cover bg-[url('temp.jpg')]">
+<div id="PreSubmit" class="">
+	
+<div class="flex-col justify-center pt-10">
+	  
+	<div class="flex justify-center">
+		<div class="flex-col justify-center">
+		<div class="mb-6">
+			<label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your name</label>
+			<input type="name" id="name" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-lg transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="John Smith" required>
+		  </div>
+	  <div class="mb-3 xl:w-96">
+		  <label for="postinfo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your post</label>
+		  
+		<textarea
+		  class=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-lg transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="postinfo" rows="3" placeholder="Your message" ></textarea>
+	  </div>
+	  <div class="text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg hover:animate-bounce" onclick="updateUI()">Unlock Other Posts</div>
+	</div>
+	</div>
+	
+  </form>
+
+</div>
+</div>
+<div id="postSubmit" style="display: none">
+	<div class="grid grid-cols-4 gap-4 pt-5 pl-5 pr-5" id="grid-container">
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		<div class="grid-item rounded-md backdrop-blur-lg bg-white/50 animate-pulse"></div>
+		
+	</div>
+</div>
+
+
+<div id="toast-default" class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert" style="display: none">
+	<div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200">
+		<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+	</div>
+	<div class="ml-3 text-sm font-normal">You must post to see what others have posted!</div>
+	<button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-warning" aria-label="Close" onclick="hideToast()">
+		<span class="sr-only">Close</span>
+		<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+	</button>
+</div>
+<div class="min-h-screen flex flex-col items-center" id="toast">
+<footer class="fixed backdrop-blur bottom-2 p-4 mb-4 rounded-lg mx-auto w-auto shadow-2xl z-10 flex items-end"  style="height: 80px" 
+	  @mousemove="x = $event.clientX; y = $event.clientY" 
+	  @mouseleave="x=10000;y=10000" x-data="{
+	x: 10000, y: 10000,
+	scalefactor(el){
+	  let rect = el.getBoundingClientRect();
+	  let dx = Math.abs(this.x - (rect.left + rect.right)/2.0);
+	  let dy = Math.abs(this.y - (rect.top + rect.bottom)/2.0);
+	  let dist = Math.sqrt(dx ** 2 + dy ** 2);
+	  return Math.min(Math.max(1.0, (2.0 - (dist-20) / 120)), 2.0);
+	},
+	size(el){
+	  return String(Math.round(48 * this.scalefactor(el))) + 'px';
+	}}">
+ <div id="hoverarea" class="flex items-end gap-x-4" style="height: 96px">
+  <button class="bg-red-500 text-white text-2xl font-bold rounded" onclick="window.location='home.html';" :style="{ width: size($el), height: size($el) }" > &#x1F3E0;
+		 </button>
+		 <button class="bg-red-500 text-white text-2xl font-bold rounded" onclick="window.location='index.html';" :style="{ width: size($el), height: size($el) }" > &#x1F4A1;
+			</button>
+   <button class="bg-red-500 text-white text-2xl font-bold rounded" onclick="window.location='charts.html';" :style="{ width: size($el), height: size($el) }" > &#x1F4CA;
+	 </button>
+ 
+   
+ </div>
+</footer>
+</div>
+
+<style>
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+</style>
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+function updateUI() {
+	const val = document.getElementById('postinfo').value;
+	const name = document.getElementById('name').value;
+	
+	if (val == ""){
+		hideToast();
+		return;
+	}
+	if (name == ""){
+		hideToast();
+		return;
+	}
+	
+//TECHNICAL FEATURE
+//This feature linked here, automatoically deals with the requests for the system to post and retrive posts. It works by getting a request from the airtable api which is where the database is. It sends the post, and then sends the request to get the entire database, and then displays it on the html. I choose this code to highlight becuase it is one of the most complex things I built. Although I tried to build my own server, this became issue filled because of security requirements and other things. It also has some really unique things I built. (Note, API key has been removed for security reasons.)
+
+	poster();
+	sleep(2000).then(() => { 
+	var x = document.getElementById("PreSubmit");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	  } else {
+		x.style.display = "none";
+	  }
+	
+	var y = document.getElementById("postSubmit");
+	if (y.style.display === "none") {
+		y.style.display = "block";
+	  } else {
+		y.style.display = "none";
+	  }
+	
+		var update5 = [];
+		var request = new XMLHttpRequest();
+	
+		request.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				console.log(this.responseText);
+				update5 = this.responseText
+			}
+		};
+	
+		request.open('GET', 'https://api.airtable.com/v0/app9eD2uiNwpIXTFx/Table%201');
+		request.setRequestHeader("Authorization", "Bearer XXXXXXXXXXXXXXXXX");
+		request.send();
+		setTimeout(() => {  console.log(update5); }, 2000);
+		sleep(2000).then(() => { 
+			const newupdate5 = JSON.parse(update5);
+			console.log(newupdate5.records)
+			var mainContainer = document.getElementById("grid-container");
+			mainContainer.innerHTML = ""
+			for (var i = 0; i < newupdate5.records.length; i++) {
+				console.log(newupdate5.records[i].fields.Info);
+				
+			  console.log(newupdate5.records[i]);
+			  var div = document.createElement("div");
+			  
+			  mainContainer.innerHTML += '<div class="grid-item rounded-md backdrop-blur-md bg-white/10 hover:animate-pulse" >' + newupdate5.records[i].fields.Info + '<div class="text-sm">' + newupdate5.records[i].fields.Name + '</div>' +  '</div>'
+			};
+		 });
+		
+		});
+		
+		
+		
+	}
+	
+
+
+
+
+
+
+
+function poster() {
+	
+var xhr = new XMLHttpRequest();
+
+	  const val = document.getElementById('postinfo').value;
+	const name = document.getElementById('name').value;
+	
+	  var url = "https://api.airtable.com/v0/app9eD2uiNwpIXTFx/Table%201";
+	  
+	  var xhr = new XMLHttpRequest();
+	  xhr.open("POST", url);
+	  
+	  xhr.setRequestHeader("Authorization", "Bearer keyLaK27uNgCuquVW");
+	  xhr.setRequestHeader("Content-Type", "application/json");
+	  
+	  xhr.onreadystatechange = function () {
+		 if (xhr.readyState === 4) {
+			console.log(xhr.status);
+			console.log(xhr.responseText);
+		 }};
+	  
+	  var data = `{
+		"fields": {
+		  "Info": "${val}",
+		  "Name": "${name}"
+		}
+	  }`;
+	  
+	  xhr.send(data);
+	  
+	  
+	  
+}
+function hideToast() {
+  var x = document.getElementById("toast-default");
+  if (x.style.display === "none") {
+	x.style.display = "flex";
+  } else {
+	x.style.display = "none";
+  }
+}
+</script>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+<script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "6FkC97tNPE");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<div class="flex w-250px h-300px flex-row overflow-auto absolute">
+		
+		<div class="p-10">
+  <div href="#" class="w-250px h-300px rounded-[50px] flex flex-col items-center bg-cover  md:flex-col  " style = "background-image: url('fires.jpg')">
+	  <div class="backdrop-blur-lg rounded-[50px]">
+	  <img class="rounded-t-[50px] object-cover w-full h-96  md:h-auto md:w-75  py-px " src="fires.jpg" alt="">
+	  <div class="flex flex-col justify-between p-4 leading-normal title">
+		  <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Fires, extreme heat, and loss of shelter are all caused by extreme climate change.</h5>
+	  </div>
+	  </div>
+  </div>
+		</div>
+		<div class="p-10">
+		  <div href="#" class="rounded-[50px] flex flex-col items-center bg-cover  md:flex-col w-250px h-300px " style = "background-image: url('fires.jpg')">
+			  <div class="backdrop-blur-lg rounded-[50px]">
+			  <img class="rounded-t-[50px] object-cover w-full h-96  md:h-auto md:w-75  py-px " src="fires.jpg" alt="">
+			  <div class="flex flex-col justify-between p-4 leading-normal title">
+				  <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Fires, extreme heat, and loss of shelter are all caused by extreme climate change.</h5>
+			  </div>
+			  </div>
+		  </div>
+				</div>
+	
+		<div class="p-10">
+			 <div href="#" class="rounded-[50px] flex flex-col items-center bg-cover  md:flex-col w-250px h-300px " style = "background-image: url('fires.jpg')">
+					<div class="backdrop-blur-lg rounded-[50px]">
+					  <img class="rounded-t-[50px] object-cover w-full h-96  md:h-auto md:w-75  py-px " src="fires.jpg" alt="">
+					  <div class="flex flex-col justify-between p-4 leading-normal title">
+						  <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Fires, extreme heat, and loss of shelter are all caused by extreme climate change.</h5>
+					  </div>
+					  </div>
+				  </div>
+						</div>
+		<div class="p-10">
+		 <div href="#" class="rounded-[50px] flex flex-col items-center bg-cover  md:flex-col w-250px h-300px " style = "background-image: url('fires.jpg')">
+				<div class="backdrop-blur-lg rounded-[50px]">
+				  <img class="rounded-t-[50px] object-cover w-full h-96  md:h-auto md:w-75  py-px " src="fires.jpg" alt="">
+				  <div class="flex flex-col justify-between p-4 leading-normal title">
+					  <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Fires, extreme heat, and loss of shelter are all caused by extreme climate change.</h5>
+				  </div>
+				  </div>
+			  </div>
+					</div>
+		<div class="p-10">
+		 <div href="#" class="rounded-[50px] flex flex-col items-center bg-cover  md:flex-col w-250px h-300px" style = "background-image: url('fires.jpg')">
+				<div class="backdrop-blur-lg rounded-[50px]">
+				  <img class="rounded-t-[50px] object-cover w-full h-96  md:h-auto md:w-75  py-px " src="fires.jpg" alt="">
+				  <div class="flex flex-col justify-between p-4 leading-normal title">
+					  <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Fires, extreme heat, and loss of shelter are all caused by extreme climate change.</h5>
+				  </div>
+				  </div>
+			  </div>
+					</div>
+</div>
